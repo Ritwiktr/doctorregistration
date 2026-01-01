@@ -2,120 +2,19 @@ import UIKit
 
 class Step4ViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.tintColor = .black
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let progressBar: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 1.0
-        progressView.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
-        progressView.trackTintColor = UIColor.lightGray
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        return progressView
-    }()
-    
-    private let stepLabel: UILabel = {
-        let label = UILabel()
-        label.text = "4/4"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Final Details"
-        label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Almost there! Just a few more details"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let ageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Age"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let ageTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter your age (e.g., 25)"
-        textField.keyboardType = .numberPad
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let ageUnitLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Age Unit"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let ageUnitSegmentedControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Years", "Months"])
-        control.selectedSegmentIndex = 0
-        control.translatesAutoresizingMaskIntoConstraints = false
-        return control
-    }()
-    
-    private let submitButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Submit", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.tintColor = .white
-        button.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
-        button.layer.cornerRadius = 12
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowOpacity = 0.2
-        button.layer.shadowRadius = 4
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.hidesWhenStopped = true
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
-    }()
+    // MARK: - IBOutlets
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var ageUnitLabel: UILabel!
+    @IBOutlet weak var ageUnitSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,84 +32,45 @@ class Step4ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        view.addSubview(backButton)
-        view.addSubview(progressBar)
-        view.addSubview(stepLabel)
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        // Configure progress bar
+        progressBar.progress = 1.0
+        progressBar.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
+        progressBar.trackTintColor = UIColor.lightGray
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subtitleLabel)
-        contentView.addSubview(ageLabel)
-        contentView.addSubview(ageTextField)
-        contentView.addSubview(ageUnitLabel)
-        contentView.addSubview(ageUnitSegmentedControl)
-        contentView.addSubview(submitButton)
-        view.addSubview(activityIndicator)
+        // Configure step label
+        stepLabel.text = "4/4"
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
+        // Configure title
+        titleLabel.text = "Final Details"
         
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            progressBar.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
-            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            progressBar.heightAnchor.constraint(equalToConstant: 4),
-            
-            stepLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8),
-            stepLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            
-            scrollView.topAnchor.constraint(equalTo: stepLabel.bottomAnchor, constant: 16),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            ageLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 32),
-            ageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            ageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            ageTextField.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 8),
-            ageTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            ageTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            ageTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            ageUnitLabel.topAnchor.constraint(equalTo: ageTextField.bottomAnchor, constant: 24),
-            ageUnitLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            ageUnitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            ageUnitSegmentedControl.topAnchor.constraint(equalTo: ageUnitLabel.bottomAnchor, constant: 8),
-            ageUnitSegmentedControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            ageUnitSegmentedControl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            ageUnitSegmentedControl.heightAnchor.constraint(equalToConstant: 44),
-            
-            submitButton.topAnchor.constraint(equalTo: ageUnitSegmentedControl.bottomAnchor, constant: 40),
-            submitButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            submitButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            submitButton.heightAnchor.constraint(equalToConstant: 50),
-            submitButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
-            
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        // Configure subtitle
+        subtitleLabel.text = "Almost there! Just a few more details"
+        
+        // Configure age label
+        ageLabel.text = "Age"
+        
+        // Configure age text field
+        ageTextField.placeholder = "Enter your age (e.g., 25)"
+        ageTextField.keyboardType = .numberPad
+        ageTextField.layer.borderColor = UIColor.lightGray.cgColor
+        ageTextField.layer.borderWidth = 1.0
+        ageTextField.layer.cornerRadius = 8
+        
+        // Configure age unit label
+        ageUnitLabel.text = "Age Unit"
+        
+        // Configure segmented control
+        ageUnitSegmentedControl.selectedSegmentIndex = 0
+        
+        // Configure submit button
+        submitButton.setTitle("Submit", for: .normal)
+        submitButton.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
+        submitButton.tintColor = .white
+        submitButton.layer.cornerRadius = 12
+        submitButton.layer.shadowColor = UIColor.black.cgColor
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        submitButton.layer.shadowOpacity = 0.2
+        submitButton.layer.shadowRadius = 4
     }
     
     private func loadSavedData() {
@@ -218,11 +78,12 @@ class Step4ViewController: UIViewController {
         ageUnitSegmentedControl.selectedSegmentIndex = RegistrationData.shared.ageUnit == "Y" ? 0 : 1
     }
     
-    @objc private func backButtonTapped() {
+    // MARK: - IBActions
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func submitButtonTapped() {
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
         // Validate Step 4 fields
         guard let ageText = ageTextField.text, !ageText.isEmpty else {
             showAlert(title: "Error", message: "Please enter your age")
@@ -363,13 +224,8 @@ class Step4ViewController: UIViewController {
                 
                 switch result {
                 case .success(let doctorData):
-                    // Navigate to list screen after successful registration
-                    let listVC = DoctorListViewController()
-                    // Pass the newly registered doctor ID so it can be added to the list
-                    if let doctorId = doctorData.id {
-                        listVC.newlyRegisteredDoctorId = doctorId
-                    }
-                    self?.navigationController?.pushViewController(listVC, animated: true)
+                    // Navigate to list screen after successful registration using segue
+                    self?.performSegue(withIdentifier: "showDoctorList", sender: doctorData.id)
                 case .failure(let error):
                     // Display the actual error message from the API
                     let errorMessage = error.localizedDescription
@@ -394,6 +250,14 @@ class Step4ViewController: UIViewController {
                     self?.showAlert(title: "Registration Failed", message: userFriendlyMessage)
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDoctorList",
+           let listVC = segue.destination as? DoctorListViewController,
+           let doctorId = sender as? String {
+            listVC.newlyRegisteredDoctorId = doctorId
         }
     }
     

@@ -2,117 +2,18 @@ import UIKit
 
 class Step1ViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.tintColor = .black
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let progressBar: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0.25
-        progressView.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
-        progressView.trackTintColor = UIColor.lightGray
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        return progressView
-    }()
-    
-    private let stepLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1/4"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Personal Information"
-        label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Let's start with your basic information"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Full Name"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let nameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter your full name"
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let emailLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Email ID"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter your email"
-        textField.keyboardType = .emailAddress
-        textField.autocapitalizationType = .none
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
-        button.layer.cornerRadius = 12
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowOpacity = 0.2
-        button.layer.shadowRadius = 4
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    // MARK: - IBOutlets
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +24,7 @@ class Step1ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
         print("👀 Step1ViewController: viewWillAppear - Step 1/4 is now visible")
         print("📊 Navigation stack count: \(navigationController?.viewControllers.count ?? 0)")
     }
@@ -130,80 +32,48 @@ class Step1ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        view.addSubview(backButton)
-        view.addSubview(progressBar)
-        view.addSubview(stepLabel)
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        // Configure progress bar
+        progressBar.progress = 0.25
+        progressBar.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
+        progressBar.trackTintColor = UIColor.lightGray
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subtitleLabel)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(nameTextField)
-        contentView.addSubview(emailLabel)
-        contentView.addSubview(emailTextField)
-        contentView.addSubview(nextButton)
+        // Configure step label
+        stepLabel.text = "1/4"
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        // Configure title
+        titleLabel.text = "Personal Information"
         
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            progressBar.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
-            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            progressBar.heightAnchor.constraint(equalToConstant: 4),
-            
-            stepLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8),
-            stepLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            
-            scrollView.topAnchor.constraint(equalTo: stepLabel.bottomAnchor, constant: 16),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            nameLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 32),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            nameTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            nameTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nameTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            emailLabel.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 24),
-            emailLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            emailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 8),
-            emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            emailTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            nextButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40),
-            nextButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 60),
-            nextButton.heightAnchor.constraint(equalToConstant: 60),
-            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
-        ])
+        // Configure subtitle
+        subtitleLabel.text = "Let's start with your basic information"
+        
+        // Configure name label
+        nameLabel.text = "Full Name"
+        
+        // Configure name text field
+        nameTextField.placeholder = "Enter your full name"
+        nameTextField.layer.borderColor = UIColor.lightGray.cgColor
+        nameTextField.layer.borderWidth = 1.0
+        nameTextField.layer.cornerRadius = 8
+        
+        // Configure email label
+        emailLabel.text = "Email ID"
+        
+        // Configure email text field
+        emailTextField.placeholder = "Enter your email"
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.autocapitalizationType = .none
+        emailTextField.layer.borderColor = UIColor.lightGray.cgColor
+        emailTextField.layer.borderWidth = 1.0
+        emailTextField.layer.cornerRadius = 8
+        
+        // Configure next button
+        nextButton.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
+        nextButton.tintColor = .white
+        nextButton.layer.cornerRadius = 12
+        nextButton.layer.shadowColor = UIColor.black.cgColor
+        nextButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        nextButton.layer.shadowOpacity = 0.2
+        nextButton.layer.shadowRadius = 4
     }
     
     private func loadSavedData() {
@@ -211,14 +81,15 @@ class Step1ViewController: UIViewController {
         emailTextField.text = RegistrationData.shared.email
     }
     
-    @objc private func backButtonTapped() {
+    // MARK: - IBActions
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         // This is the first screen, so back button can dismiss or do nothing
         if navigationController?.viewControllers.count ?? 0 > 1 {
             navigationController?.popViewController(animated: true)
         }
     }
     
-    @objc private func nextButtonTapped() {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         print("🔵 Step1ViewController: Next button tapped")
         guard let name = nameTextField.text, !name.isEmpty,
               let email = emailTextField.text, !email.isEmpty else {
@@ -235,14 +106,8 @@ class Step1ViewController: UIViewController {
         
         print("💾 Step1: Data saved, navigating to Step 2...")
         
-        // Navigate to next step
-        let step2VC = RegistrationViewController()
-        if let navController = navigationController {
-            print("✅ Step1: Navigation controller found, pushing Step 2")
-            navController.pushViewController(step2VC, animated: true)
-        } else {
-            print("❌ Step1: Navigation controller is nil!")
-        }
+        // Navigate to next step using segue
+        performSegue(withIdentifier: "showStep2", sender: nil)
     }
     
     private func showAlert(title: String, message: String) {

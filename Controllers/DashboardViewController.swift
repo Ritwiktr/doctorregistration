@@ -8,12 +8,15 @@ class DashboardViewController: UIViewController {
     private var animatedGradientLayer: CAGradientLayer?
     private var floatingCircles: [UIView] = []
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
+    // MARK: - IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            // Configure scrollView when outlet is set
+            scrollView.showsVerticalScrollIndicator = false
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let contentView: UIView = {
         let view = UIView()
@@ -287,17 +290,12 @@ class DashboardViewController: UIViewController {
         return stackView
     }()
     
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.hidesWhenStopped = true
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Extend edges behind status bar
         edgesForExtendedLayout = .top
+        
         setupUI()
         setupAnimations()
         loadDoctorDetails()
@@ -316,7 +314,7 @@ class DashboardViewController: UIViewController {
         // Setup animated header background
         setupAnimatedHeader()
         
-        view.addSubview(scrollView)
+        // Add contentView to scrollView (scrollView is connected from storyboard)
         scrollView.addSubview(contentView)
         
         contentView.addSubview(headerContainerView)
@@ -357,20 +355,12 @@ class DashboardViewController: UIViewController {
         
         contentView.addSubview(servicesLabel)
         contentView.addSubview(servicesStackView)
-        view.addSubview(activityIndicator)
         
         setupServicesGrid()
         setupBannerScrollView()
         
-        // Configure scroll view to extend behind status bar
-        scrollView.contentInsetAdjustmentBehavior = .never
-        
+        // Set up constraints for contentView and all subviews
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),

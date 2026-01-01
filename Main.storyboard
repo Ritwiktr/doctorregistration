@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-controller">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="nav-scene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nav-controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <key key="sceneMemberID" value="viewController"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nav-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-first" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="0"/>
+        </scene>
+        <!--Step 1 View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Step1ViewController" id="BYZ-38-t0r" customClass="Step1ViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-step1">
+                                <rect key="frame" x="16" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="w1"/>
+                                    <constraint firstAttribute="height" constant="44" id="h1"/>
+                                </constraints>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="act-back-step1"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="progress-step1">
+                                <rect key="frame" x="16" y="119" width="361" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="ph1"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="label-step1">
+                                <rect key="frame" x="16" y="131" width="24" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="grayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-step1">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-step1">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-step1">
+                                                <rect key="frame" x="16" y="20" width="361" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start with your basic information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-step1">
+                                                <rect key="frame" x="16" y="62" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="grayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="name-label-step1">
+                                                <rect key="frame" x="16" y="113" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="name-field-step1">
+                                                <rect key="frame" x="16" y="140" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="nh1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="email-label-step1">
+                                                <rect key="frame" x="16" y="214" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="email-field-step1">
+                                                <rect key="frame" x="16" y="241" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="eh1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" autocapitalizationType="none"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-next-step1">
+                                                <rect key="frame" x="166.66666666666666" y="331" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="nw1"/>
+                                                    <constraint firstAttribute="height" constant="60" id="nh2"/>
+                                                </constraints>
+                                                <state key="normal" image="arrow.right" catalog="system">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="act-next-step1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="title-step1" firstAttribute="top" secondItem="content-step1" secondAttribute="top" constant="20" id="t1"/>
+                                            <constraint firstItem="title-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="t2"/>
+                                            <constraint firstItem="title-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="t3"/>
+                                            <constraint firstItem="subtitle-step1" firstAttribute="top" secondItem="title-step1" secondAttribute="bottom" constant="8" id="s1"/>
+                                            <constraint firstItem="subtitle-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="s2"/>
+                                            <constraint firstItem="subtitle-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="s3"/>
+                                            <constraint firstItem="name-label-step1" firstAttribute="top" secondItem="subtitle-step1" secondAttribute="bottom" constant="32" id="nl1"/>
+                                            <constraint firstItem="name-label-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="nl2"/>
+                                            <constraint firstItem="name-label-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="nl3"/>
+                                            <constraint firstItem="name-field-step1" firstAttribute="top" secondItem="name-label-step1" secondAttribute="bottom" constant="8" id="nf1"/>
+                                            <constraint firstItem="name-field-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="nf2"/>
+                                            <constraint firstItem="name-field-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="nf3"/>
+                                            <constraint firstItem="email-label-step1" firstAttribute="top" secondItem="name-field-step1" secondAttribute="bottom" constant="24" id="el1"/>
+                                            <constraint firstItem="email-label-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="el2"/>
+                                            <constraint firstItem="email-label-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="el3"/>
+                                            <constraint firstItem="email-field-step1" firstAttribute="top" secondItem="email-label-step1" secondAttribute="bottom" constant="8" id="ef1"/>
+                                            <constraint firstItem="email-field-step1" firstAttribute="leading" secondItem="content-step1" secondAttribute="leading" constant="16" id="ef2"/>
+                                            <constraint firstItem="email-field-step1" firstAttribute="trailing" secondItem="content-step1" secondAttribute="trailing" constant="-16" id="ef3"/>
+                                            <constraint firstItem="btn-next-step1" firstAttribute="top" secondItem="email-field-step1" secondAttribute="bottom" constant="40" id="bn1"/>
+                                            <constraint firstItem="btn-next-step1" firstAttribute="centerX" secondItem="content-step1" secondAttribute="centerX" id="bn2"/>
+                                            <constraint firstItem="btn-next-step1" firstAttribute="bottom" secondItem="content-step1" secondAttribute="bottom" constant="-40" id="bn3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="content-step1" firstAttribute="width" secondItem="scroll-step1" secondAttribute="width" id="cw1"/>
+                                    <constraint firstItem="content-step1" firstAttribute="top" secondItem="scroll-step1" secondAttribute="top" id="ct1"/>
+                                    <constraint firstItem="content-step1" firstAttribute="leading" secondItem="scroll-step1" secondAttribute="leading" id="cl1"/>
+                                    <constraint firstItem="content-step1" firstAttribute="trailing" secondItem="scroll-step1" secondAttribute="trailing" id="cr1"/>
+                                    <constraint firstItem="content-step1" firstAttribute="bottom" secondItem="scroll-step1" secondAttribute="bottom" id="cb1"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btn-back-step1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="bb1"/>
+                            <constraint firstItem="btn-back-step1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bb2"/>
+                            <constraint firstItem="progress-step1" firstAttribute="top" secondItem="btn-back-step1" secondAttribute="bottom" constant="16" id="p1"/>
+                            <constraint firstItem="progress-step1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="p2"/>
+                            <constraint firstItem="progress-step1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="p3"/>
+                            <constraint firstItem="label-step1" firstAttribute="top" secondItem="progress-step1" secondAttribute="bottom" constant="8" id="l1"/>
+                            <constraint firstItem="label-step1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="l2"/>
+                            <constraint firstItem="scroll-step1" firstAttribute="top" secondItem="label-step1" secondAttribute="bottom" constant="16" id="sc1"/>
+                            <constraint firstItem="scroll-step1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sc2"/>
+                            <constraint firstItem="scroll-step1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sc3"/>
+                            <constraint firstItem="scroll-step1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="sc4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="btn-back-step1" id="out-back1"/>
+                        <outlet property="progressBar" destination="progress-step1" id="out-prog1"/>
+                        <outlet property="stepLabel" destination="label-step1" id="out-step1"/>
+                        <outlet property="scrollView" destination="scroll-step1" id="out-scroll1"/>
+                        <outlet property="titleLabel" destination="title-step1" id="out-title1"/>
+                        <outlet property="subtitleLabel" destination="subtitle-step1" id="out-sub1"/>
+                        <outlet property="nameLabel" destination="name-label-step1" id="out-namel1"/>
+                        <outlet property="nameTextField" destination="name-field-step1" id="out-namef1"/>
+                        <outlet property="emailLabel" destination="email-label-step1" id="out-emaill1"/>
+                        <outlet property="emailTextField" destination="email-field-step1" id="out-emailf1"/>
+                        <outlet property="nextButton" destination="btn-next-step1" id="out-next1"/>
+                        <segue destination="reg-vc" kind="show" identifier="showStep2" id="seg-step1-to-step2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="0"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="reg-scene">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationViewController" id="reg-vc" customClass="RegistrationViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="reg-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-step2">
+                                <rect key="frame" x="20" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="w2"/>
+                                    <constraint firstAttribute="height" constant="44" id="h2"/>
+                                </constraints>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="reg-vc" eventType="touchUpInside" id="act-back-step2"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="progress-step2">
+                                <rect key="frame" x="20" y="119" width="353" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="ph2"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="label-step2">
+                                <rect key="frame" x="20" y="131" width="24" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13" weight="medium"/>
+                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-step2">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-step2">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-step2">
+                                                <rect key="frame" x="20" y="8" width="353" height="38"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" red="0.1" green="0.1" blue="0.1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel free to fill your details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-step2">
+                                                <rect key="frame" x="20" y="54" width="353" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gender-label-step2">
+                                                <rect key="frame" x="20" y="109" width="353" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17" weight="semibold"/>
+                                                <color key="textColor" red="0.1" green="0.1" blue="0.1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gender-stack-step2">
+                                                <rect key="frame" x="20" y="143" width="353" height="52"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="gs1"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Practicing From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="practice-label-step2">
+                                                <rect key="frame" x="20" y="223" width="353" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17" weight="semibold"/>
+                                                <color key="textColor" red="0.1" green="0.1" blue="0.1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="practice-stack-step2">
+                                                <rect key="frame" x="20" y="257" width="353" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="ps1"/>
+                                                </constraints>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="none" placeholder="Months" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="months-field-step2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="56"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="none" placeholder="Years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="years-field-step2">
+                                                        <rect key="frame" x="182.66666666666666" y="0.0" width="170.33333333333334" height="56"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-next-step2">
+                                                <rect key="frame" x="166.5" y="361" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="nw2"/>
+                                                    <constraint firstAttribute="height" constant="60" id="nh3"/>
+                                                </constraints>
+                                                <state key="normal" image="arrow.right" catalog="system">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="nextButtonTapped:" destination="reg-vc" eventType="touchUpInside" id="act-next-step2"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="NO" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="indicator-step2">
+                                                <rect key="frame" x="176.66666666666666" y="396" width="40" height="40"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99" green="0.99" blue="0.99" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="title-step2" firstAttribute="top" secondItem="content-step2" secondAttribute="top" constant="8" id="t4"/>
+                                            <constraint firstItem="title-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="t5"/>
+                                            <constraint firstItem="title-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="t6"/>
+                                            <constraint firstItem="subtitle-step2" firstAttribute="top" secondItem="title-step2" secondAttribute="bottom" constant="8" id="s4"/>
+                                            <constraint firstItem="subtitle-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="s5"/>
+                                            <constraint firstItem="subtitle-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="s6"/>
+                                            <constraint firstItem="gender-label-step2" firstAttribute="top" secondItem="subtitle-step2" secondAttribute="bottom" constant="36" id="gl1"/>
+                                            <constraint firstItem="gender-label-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="gl2"/>
+                                            <constraint firstItem="gender-label-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="gl3"/>
+                                            <constraint firstItem="gender-stack-step2" firstAttribute="top" secondItem="gender-label-step2" secondAttribute="bottom" constant="14" id="gs2"/>
+                                            <constraint firstItem="gender-stack-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="gs3"/>
+                                            <constraint firstItem="gender-stack-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="gs4"/>
+                                            <constraint firstItem="practice-label-step2" firstAttribute="top" secondItem="gender-stack-step2" secondAttribute="bottom" constant="28" id="pl1"/>
+                                            <constraint firstItem="practice-label-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="pl2"/>
+                                            <constraint firstItem="practice-label-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="pl3"/>
+                                            <constraint firstItem="practice-stack-step2" firstAttribute="top" secondItem="practice-label-step2" secondAttribute="bottom" constant="14" id="ps2"/>
+                                            <constraint firstItem="practice-stack-step2" firstAttribute="leading" secondItem="content-step2" secondAttribute="leading" constant="20" id="ps3"/>
+                                            <constraint firstItem="practice-stack-step2" firstAttribute="trailing" secondItem="content-step2" secondAttribute="trailing" constant="-20" id="ps4"/>
+                                            <constraint firstItem="btn-next-step2" firstAttribute="top" secondItem="practice-stack-step2" secondAttribute="bottom" constant="48" id="bn4"/>
+                                            <constraint firstItem="btn-next-step2" firstAttribute="centerX" secondItem="content-step2" secondAttribute="centerX" id="bn5"/>
+                                            <constraint firstItem="btn-next-step2" firstAttribute="bottom" secondItem="content-step2" secondAttribute="bottom" constant="-40" id="bn6"/>
+                                            <constraint firstItem="indicator-step2" firstAttribute="centerX" secondItem="content-step2" secondAttribute="centerX" id="ind1"/>
+                                            <constraint firstItem="indicator-step2" firstAttribute="centerY" secondItem="content-step2" secondAttribute="centerY" id="ind2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="content-step2" firstAttribute="width" secondItem="scroll-step2" secondAttribute="width" id="cw2"/>
+                                    <constraint firstItem="content-step2" firstAttribute="top" secondItem="scroll-step2" secondAttribute="top" id="ct2"/>
+                                    <constraint firstItem="content-step2" firstAttribute="leading" secondItem="scroll-step2" secondAttribute="leading" id="cl2"/>
+                                    <constraint firstItem="content-step2" firstAttribute="trailing" secondItem="scroll-step2" secondAttribute="trailing" id="cr2"/>
+                                    <constraint firstItem="content-step2" firstAttribute="bottom" secondItem="scroll-step2" secondAttribute="bottom" id="cb2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="reg-safe"/>
+                        <color key="backgroundColor" red="0.99" green="0.99" blue="0.99" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="btn-back-step2" firstAttribute="top" secondItem="reg-safe" secondAttribute="top" constant="12" id="bb3"/>
+                            <constraint firstItem="btn-back-step2" firstAttribute="leading" secondItem="reg-safe" secondAttribute="leading" constant="20" id="bb4"/>
+                            <constraint firstItem="progress-step2" firstAttribute="top" secondItem="btn-back-step2" secondAttribute="bottom" constant="20" id="p4"/>
+                            <constraint firstItem="progress-step2" firstAttribute="leading" secondItem="reg-safe" secondAttribute="leading" constant="20" id="p5"/>
+                            <constraint firstItem="progress-step2" firstAttribute="trailing" secondItem="reg-safe" secondAttribute="trailing" constant="-20" id="p6"/>
+                            <constraint firstItem="label-step2" firstAttribute="top" secondItem="progress-step2" secondAttribute="bottom" constant="12" id="l3"/>
+                            <constraint firstItem="label-step2" firstAttribute="leading" secondItem="reg-safe" secondAttribute="leading" constant="20" id="l4"/>
+                            <constraint firstItem="scroll-step2" firstAttribute="top" secondItem="label-step2" secondAttribute="bottom" constant="20" id="sc5"/>
+                            <constraint firstItem="scroll-step2" firstAttribute="leading" secondItem="reg-safe" secondAttribute="leading" id="sc6"/>
+                            <constraint firstItem="scroll-step2" firstAttribute="trailing" secondItem="reg-safe" secondAttribute="trailing" id="sc7"/>
+                            <constraint firstItem="scroll-step2" firstAttribute="bottom" secondItem="reg-safe" secondAttribute="bottom" id="sc8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="btn-back-step2" id="out-back2"/>
+                        <outlet property="progressBar" destination="progress-step2" id="out-prog2"/>
+                        <outlet property="stepLabel" destination="label-step2" id="out-step2"/>
+                        <outlet property="scrollView" destination="scroll-step2" id="out-scroll2"/>
+                        <outlet property="titleLabel" destination="title-step2" id="out-title2"/>
+                        <outlet property="subtitleLabel" destination="subtitle-step2" id="out-sub2"/>
+                        <outlet property="genderLabel" destination="gender-label-step2" id="out-genderl2"/>
+                        <outlet property="genderStackView" destination="gender-stack-step2" id="out-genders2"/>
+                        <outlet property="practiceFromLabel" destination="practice-label-step2" id="out-practicel2"/>
+                        <outlet property="practiceStackView" destination="practice-stack-step2" id="out-practices2"/>
+                        <outlet property="monthsTextField" destination="months-field-step2" id="out-months2"/>
+                        <outlet property="yearsTextField" destination="years-field-step2" id="out-years2"/>
+                        <outlet property="nextButton" destination="btn-next-step2" id="out-next2"/>
+                        <outlet property="activityIndicator" destination="indicator-step2" id="out-ind2"/>
+                        <segue destination="step3-vc" kind="show" identifier="showStep3" id="seg-step2-to-step3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="reg-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="0"/>
+        </scene>
+        <!--Step 3 View Controller-->
+        <scene sceneID="step3-scene">
+            <objects>
+                <viewController storyboardIdentifier="Step3ViewController" id="step3-vc" customClass="Step3ViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="step3-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-step3">
+                                <rect key="frame" x="16" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="w3"/>
+                                    <constraint firstAttribute="height" constant="44" id="h3"/>
+                                </constraints>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="step3-vc" eventType="touchUpInside" id="act-back-step3"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="progress-step3">
+                                <rect key="frame" x="16" y="119" width="361" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="ph3"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="label-step3">
+                                <rect key="frame" x="16" y="131" width="24" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="grayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-step3">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-step3">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-step3">
+                                                <rect key="frame" x="16" y="20" width="361" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide your contact information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-step3">
+                                                <rect key="frame" x="16" y="62" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="grayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phone-label-step3">
+                                                <rect key="frame" x="16" y="113" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phone-field-step3">
+                                                <rect key="frame" x="16" y="140" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="phf1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WhatsApp Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whatsapp-label-step3">
+                                                <rect key="frame" x="16" y="214" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter WhatsApp number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whatsapp-field-step3">
+                                                <rect key="frame" x="16" y="241" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="whf1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="country-label-step3">
+                                                <rect key="frame" x="16" y="315" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country Code (e.g., IN)" text="IN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="country-field-step3">
+                                                <rect key="frame" x="16" y="342" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="cf1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-next-step3">
+                                                <rect key="frame" x="166.66666666666666" y="432" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="nw3"/>
+                                                    <constraint firstAttribute="height" constant="60" id="nh4"/>
+                                                </constraints>
+                                                <state key="normal" image="arrow.right" catalog="system">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="nextButtonTapped:" destination="step3-vc" eventType="touchUpInside" id="act-next-step3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="title-step3" firstAttribute="top" secondItem="content-step3" secondAttribute="top" constant="20" id="t7"/>
+                                            <constraint firstItem="title-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="t8"/>
+                                            <constraint firstItem="title-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="t9"/>
+                                            <constraint firstItem="subtitle-step3" firstAttribute="top" secondItem="title-step3" secondAttribute="bottom" constant="8" id="s7"/>
+                                            <constraint firstItem="subtitle-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="s8"/>
+                                            <constraint firstItem="subtitle-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="s9"/>
+                                            <constraint firstItem="phone-label-step3" firstAttribute="top" secondItem="subtitle-step3" secondAttribute="bottom" constant="32" id="pl4"/>
+                                            <constraint firstItem="phone-label-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="pl5"/>
+                                            <constraint firstItem="phone-label-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="pl6"/>
+                                            <constraint firstItem="phone-field-step3" firstAttribute="top" secondItem="phone-label-step3" secondAttribute="bottom" constant="8" id="pf1"/>
+                                            <constraint firstItem="phone-field-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="pf2"/>
+                                            <constraint firstItem="phone-field-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="pf3"/>
+                                            <constraint firstItem="whatsapp-label-step3" firstAttribute="top" secondItem="phone-field-step3" secondAttribute="bottom" constant="24" id="wl1"/>
+                                            <constraint firstItem="whatsapp-label-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="wl2"/>
+                                            <constraint firstItem="whatsapp-label-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="wl3"/>
+                                            <constraint firstItem="whatsapp-field-step3" firstAttribute="top" secondItem="whatsapp-label-step3" secondAttribute="bottom" constant="8" id="wf1"/>
+                                            <constraint firstItem="whatsapp-field-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="wf2"/>
+                                            <constraint firstItem="whatsapp-field-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="wf3"/>
+                                            <constraint firstItem="country-label-step3" firstAttribute="top" secondItem="whatsapp-field-step3" secondAttribute="bottom" constant="24" id="cl1-step3"/>
+                                            <constraint firstItem="country-label-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="cl2-step3"/>
+                                            <constraint firstItem="country-label-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="cl3-step3"/>
+                                            <constraint firstItem="country-field-step3" firstAttribute="top" secondItem="country-label-step3" secondAttribute="bottom" constant="8" id="cf2"/>
+                                            <constraint firstItem="country-field-step3" firstAttribute="leading" secondItem="content-step3" secondAttribute="leading" constant="16" id="cf3"/>
+                                            <constraint firstItem="country-field-step3" firstAttribute="trailing" secondItem="content-step3" secondAttribute="trailing" constant="-16" id="cf4"/>
+                                            <constraint firstItem="btn-next-step3" firstAttribute="top" secondItem="country-field-step3" secondAttribute="bottom" constant="40" id="bn7"/>
+                                            <constraint firstItem="btn-next-step3" firstAttribute="centerX" secondItem="content-step3" secondAttribute="centerX" id="bn8"/>
+                                            <constraint firstItem="btn-next-step3" firstAttribute="bottom" secondItem="content-step3" secondAttribute="bottom" constant="-40" id="bn9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="content-step3" firstAttribute="width" secondItem="scroll-step3" secondAttribute="width" id="cw3"/>
+                                    <constraint firstItem="content-step3" firstAttribute="top" secondItem="scroll-step3" secondAttribute="top" id="ct3"/>
+                                    <constraint firstItem="content-step3" firstAttribute="leading" secondItem="scroll-step3" secondAttribute="leading" id="cl3-scroll3"/>
+                                    <constraint firstItem="content-step3" firstAttribute="trailing" secondItem="scroll-step3" secondAttribute="trailing" id="cr3"/>
+                                    <constraint firstItem="content-step3" firstAttribute="bottom" secondItem="scroll-step3" secondAttribute="bottom" id="cb3"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="step3-safe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btn-back-step3" firstAttribute="top" secondItem="step3-safe" secondAttribute="top" constant="16" id="bb5"/>
+                            <constraint firstItem="btn-back-step3" firstAttribute="leading" secondItem="step3-safe" secondAttribute="leading" constant="16" id="bb6"/>
+                            <constraint firstItem="progress-step3" firstAttribute="top" secondItem="btn-back-step3" secondAttribute="bottom" constant="16" id="p7"/>
+                            <constraint firstItem="progress-step3" firstAttribute="leading" secondItem="step3-safe" secondAttribute="leading" constant="16" id="p8"/>
+                            <constraint firstItem="progress-step3" firstAttribute="trailing" secondItem="step3-safe" secondAttribute="trailing" constant="-16" id="p9"/>
+                            <constraint firstItem="label-step3" firstAttribute="top" secondItem="progress-step3" secondAttribute="bottom" constant="8" id="l5"/>
+                            <constraint firstItem="label-step3" firstAttribute="leading" secondItem="step3-safe" secondAttribute="leading" constant="16" id="l6"/>
+                            <constraint firstItem="scroll-step3" firstAttribute="top" secondItem="label-step3" secondAttribute="bottom" constant="16" id="sc9"/>
+                            <constraint firstItem="scroll-step3" firstAttribute="leading" secondItem="step3-safe" secondAttribute="leading" id="sc10"/>
+                            <constraint firstItem="scroll-step3" firstAttribute="trailing" secondItem="step3-safe" secondAttribute="trailing" id="sc11"/>
+                            <constraint firstItem="scroll-step3" firstAttribute="bottom" secondItem="step3-safe" secondAttribute="bottom" id="sc12"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="btn-back-step3" id="out-back3"/>
+                        <outlet property="progressBar" destination="progress-step3" id="out-prog3"/>
+                        <outlet property="stepLabel" destination="label-step3" id="out-step3"/>
+                        <outlet property="scrollView" destination="scroll-step3" id="out-scroll3"/>
+                        <outlet property="titleLabel" destination="title-step3" id="out-title3"/>
+                        <outlet property="subtitleLabel" destination="subtitle-step3" id="out-sub3"/>
+                        <outlet property="phoneNumberLabel" destination="phone-label-step3" id="out-phonel3"/>
+                        <outlet property="phoneNumberTextField" destination="phone-field-step3" id="out-phonef3"/>
+                        <outlet property="whatsappNumberLabel" destination="whatsapp-label-step3" id="out-whatsappl3"/>
+                        <outlet property="whatsappNumberTextField" destination="whatsapp-field-step3" id="out-whatsappf3"/>
+                        <outlet property="countryCodeLabel" destination="country-label-step3" id="out-countryl3"/>
+                        <outlet property="countryCodeTextField" destination="country-field-step3" id="out-countryf3"/>
+                        <outlet property="nextButton" destination="btn-next-step3" id="out-next3"/>
+                        <segue destination="step4-vc" kind="show" identifier="showStep4" id="seg-step3-to-step4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="step3-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="0"/>
+        </scene>
+        <!--Step 4 View Controller-->
+        <scene sceneID="step4-scene">
+            <objects>
+                <viewController storyboardIdentifier="Step4ViewController" id="step4-vc" customClass="Step4ViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="step4-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-step4">
+                                <rect key="frame" x="16" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="w4"/>
+                                    <constraint firstAttribute="height" constant="44" id="h4"/>
+                                </constraints>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="step4-vc" eventType="touchUpInside" id="act-back-step4"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1.0" translatesAutoresizingMaskIntoConstraints="NO" id="progress-step4">
+                                <rect key="frame" x="16" y="119" width="361" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="ph4"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="label-step4">
+                                <rect key="frame" x="16" y="131" width="24" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="grayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-step4">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-step4">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-step4">
+                                                <rect key="frame" x="16" y="20" width="361" height="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almost there! Just a few more details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-step4">
+                                                <rect key="frame" x="16" y="62" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="grayColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="age-label-step4">
+                                                <rect key="frame" x="16" y="113" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your age (e.g., 25)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="age-field-step4">
+                                                <rect key="frame" x="16" y="140" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="af1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ageunit-label-step4">
+                                                <rect key="frame" x="16" y="214" width="361" height="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ageunit-seg-step4">
+                                                <rect key="frame" x="16" y="241" width="361" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="aus1"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Years"/>
+                                                    <segment title="Months"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-submit-step4">
+                                                <rect key="frame" x="16" y="325" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="bs1"/>
+                                                </constraints>
+                                                <state key="normal" title="Submit"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="step4-vc" eventType="touchUpInside" id="act-submit-step4"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="NO" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="indicator-step4">
+                                                <rect key="frame" x="176.66666666666666" y="396" width="40" height="40"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="title-step4" firstAttribute="top" secondItem="content-step4" secondAttribute="top" constant="20" id="t10"/>
+                                            <constraint firstItem="title-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="t11"/>
+                                            <constraint firstItem="title-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="t12"/>
+                                            <constraint firstItem="subtitle-step4" firstAttribute="top" secondItem="title-step4" secondAttribute="bottom" constant="8" id="s10"/>
+                                            <constraint firstItem="subtitle-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="s11"/>
+                                            <constraint firstItem="subtitle-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="s12"/>
+                                            <constraint firstItem="age-label-step4" firstAttribute="top" secondItem="subtitle-step4" secondAttribute="bottom" constant="32" id="al1"/>
+                                            <constraint firstItem="age-label-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="al2"/>
+                                            <constraint firstItem="age-label-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="al3"/>
+                                            <constraint firstItem="age-field-step4" firstAttribute="top" secondItem="age-label-step4" secondAttribute="bottom" constant="8" id="af2"/>
+                                            <constraint firstItem="age-field-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="af3"/>
+                                            <constraint firstItem="age-field-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="af4"/>
+                                            <constraint firstItem="ageunit-label-step4" firstAttribute="top" secondItem="age-field-step4" secondAttribute="bottom" constant="24" id="aul1"/>
+                                            <constraint firstItem="ageunit-label-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="aul2"/>
+                                            <constraint firstItem="ageunit-label-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="aul3"/>
+                                            <constraint firstItem="ageunit-seg-step4" firstAttribute="top" secondItem="ageunit-label-step4" secondAttribute="bottom" constant="8" id="aus2"/>
+                                            <constraint firstItem="ageunit-seg-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="aus3"/>
+                                            <constraint firstItem="ageunit-seg-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="aus4"/>
+                                            <constraint firstItem="btn-submit-step4" firstAttribute="top" secondItem="ageunit-seg-step4" secondAttribute="bottom" constant="40" id="bs2"/>
+                                            <constraint firstItem="btn-submit-step4" firstAttribute="leading" secondItem="content-step4" secondAttribute="leading" constant="16" id="bs3"/>
+                                            <constraint firstItem="btn-submit-step4" firstAttribute="trailing" secondItem="content-step4" secondAttribute="trailing" constant="-16" id="bs4"/>
+                                            <constraint firstItem="btn-submit-step4" firstAttribute="bottom" secondItem="content-step4" secondAttribute="bottom" constant="-40" id="bs5"/>
+                                            <constraint firstItem="indicator-step4" firstAttribute="centerX" secondItem="content-step4" secondAttribute="centerX" id="ind3"/>
+                                            <constraint firstItem="indicator-step4" firstAttribute="centerY" secondItem="content-step4" secondAttribute="centerY" id="ind4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="content-step4" firstAttribute="width" secondItem="scroll-step4" secondAttribute="width" id="cw4"/>
+                                    <constraint firstItem="content-step4" firstAttribute="top" secondItem="scroll-step4" secondAttribute="top" id="ct4"/>
+                                    <constraint firstItem="content-step4" firstAttribute="leading" secondItem="scroll-step4" secondAttribute="leading" id="cl4"/>
+                                    <constraint firstItem="content-step4" firstAttribute="trailing" secondItem="scroll-step4" secondAttribute="trailing" id="cr4"/>
+                                    <constraint firstItem="content-step4" firstAttribute="bottom" secondItem="scroll-step4" secondAttribute="bottom" id="cb4"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="step4-safe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btn-back-step4" firstAttribute="top" secondItem="step4-safe" secondAttribute="top" constant="16" id="bb7"/>
+                            <constraint firstItem="btn-back-step4" firstAttribute="leading" secondItem="step4-safe" secondAttribute="leading" constant="16" id="bb8"/>
+                            <constraint firstItem="progress-step4" firstAttribute="top" secondItem="btn-back-step4" secondAttribute="bottom" constant="16" id="p10"/>
+                            <constraint firstItem="progress-step4" firstAttribute="leading" secondItem="step4-safe" secondAttribute="leading" constant="16" id="p11"/>
+                            <constraint firstItem="progress-step4" firstAttribute="trailing" secondItem="step4-safe" secondAttribute="trailing" constant="-16" id="p12"/>
+                            <constraint firstItem="label-step4" firstAttribute="top" secondItem="progress-step4" secondAttribute="bottom" constant="8" id="l7"/>
+                            <constraint firstItem="label-step4" firstAttribute="leading" secondItem="step4-safe" secondAttribute="leading" constant="16" id="l8"/>
+                            <constraint firstItem="scroll-step4" firstAttribute="top" secondItem="label-step4" secondAttribute="bottom" constant="16" id="sc13"/>
+                            <constraint firstItem="scroll-step4" firstAttribute="leading" secondItem="step4-safe" secondAttribute="leading" id="sc14"/>
+                            <constraint firstItem="scroll-step4" firstAttribute="trailing" secondItem="step4-safe" secondAttribute="trailing" id="sc15"/>
+                            <constraint firstItem="scroll-step4" firstAttribute="bottom" secondItem="step4-safe" secondAttribute="bottom" id="sc16"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="btn-back-step4" id="out-back4"/>
+                        <outlet property="progressBar" destination="progress-step4" id="out-prog4"/>
+                        <outlet property="stepLabel" destination="label-step4" id="out-step4"/>
+                        <outlet property="scrollView" destination="scroll-step4" id="out-scroll4"/>
+                        <outlet property="titleLabel" destination="title-step4" id="out-title4"/>
+                        <outlet property="subtitleLabel" destination="subtitle-step4" id="out-sub4"/>
+                        <outlet property="ageLabel" destination="age-label-step4" id="out-agel4"/>
+                        <outlet property="ageTextField" destination="age-field-step4" id="out-agef4"/>
+                        <outlet property="ageUnitLabel" destination="ageunit-label-step4" id="out-ageunitl4"/>
+                        <outlet property="ageUnitSegmentedControl" destination="ageunit-seg-step4" id="out-ageunitseg4"/>
+                        <outlet property="submitButton" destination="btn-submit-step4" id="out-submit4"/>
+                        <outlet property="activityIndicator" destination="indicator-step4" id="out-ind4"/>
+                        <segue destination="list-vc" kind="show" identifier="showDoctorList" id="seg-step4-to-list"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="step4-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="0"/>
+        </scene>
+        <!--Doctor List View Controller-->
+        <scene sceneID="list-scene">
+            <objects>
+                <viewController storyboardIdentifier="DoctorListViewController" id="list-vc" customClass="DoctorListViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="list-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="table-list">
+                                <rect key="frame" x="0.0" y="180" width="393" height="672"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="NO" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="indicator-list">
+                                <rect key="frame" x="176.66666666666666" y="396" width="40" height="40"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="list-safe"/>
+                        <color key="backgroundColor" red="0.98" green="0.98" blue="0.99" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="table-list" firstAttribute="top" secondItem="list-safe" secondAttribute="top" constant="180" id="tl1"/>
+                            <constraint firstItem="table-list" firstAttribute="leading" secondItem="list-safe" secondAttribute="leading" id="tl2"/>
+                            <constraint firstItem="table-list" firstAttribute="trailing" secondItem="list-safe" secondAttribute="trailing" id="tl3"/>
+                            <constraint firstItem="table-list" firstAttribute="bottom" secondItem="list-safe" secondAttribute="bottom" id="tl4"/>
+                            <constraint firstItem="indicator-list" firstAttribute="centerX" secondItem="list-view" secondAttribute="centerX" id="ind5"/>
+                            <constraint firstItem="indicator-list" firstAttribute="centerY" secondItem="list-view" secondAttribute="centerY" id="ind6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="table-list" id="out-table-list"/>
+                        <outlet property="activityIndicator" destination="indicator-list" id="out-ind-list"/>
+                        <segue destination="dashboard-vc" kind="show" identifier="showDashboard" id="seg-list-to-dashboard"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="list-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000" y="0"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="dashboard-scene">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" id="dashboard-vc" customClass="DashboardViewController" customModule="DoctorRegistrationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dashboard-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-dashboard">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="NO" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="indicator-dashboard">
+                                <rect key="frame" x="176.66666666666666" y="396" width="40" height="40"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dashboard-safe"/>
+                        <color key="backgroundColor" red="0.98" green="0.98" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="scroll-dashboard" firstAttribute="top" secondItem="dashboard-view" secondAttribute="top" id="sd1"/>
+                            <constraint firstItem="scroll-dashboard" firstAttribute="leading" secondItem="dashboard-safe" secondAttribute="leading" id="sd2"/>
+                            <constraint firstItem="scroll-dashboard" firstAttribute="trailing" secondItem="dashboard-safe" secondAttribute="trailing" id="sd3"/>
+                            <constraint firstItem="scroll-dashboard" firstAttribute="bottom" secondItem="dashboard-safe" secondAttribute="bottom" id="sd4"/>
+                            <constraint firstItem="indicator-dashboard" firstAttribute="centerX" secondItem="dashboard-view" secondAttribute="centerX" id="ind7"/>
+                            <constraint firstItem="indicator-dashboard" firstAttribute="centerY" secondItem="dashboard-view" secondAttribute="centerY" id="ind8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="scroll-dashboard" id="out-scroll-dashboard"/>
+                        <outlet property="activityIndicator" destination="indicator-dashboard" id="out-ind-dashboard"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dashboard-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.right" catalog="system" width="128" height="109"/>
+        <image name="chevron.left" catalog="system" width="128" height="109"/>
+        <systemColor name="grayColor">
+            <color white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
+

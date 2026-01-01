@@ -2,138 +2,20 @@ import UIKit
 
 class Step3ViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.tintColor = .black
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let progressBar: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0.75
-        progressView.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
-        progressView.trackTintColor = UIColor.lightGray
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        return progressView
-    }()
-    
-    private let stepLabel: UILabel = {
-        let label = UILabel()
-        label.text = "3/4"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Contact Details"
-        label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Provide your contact information"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .gray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let phoneNumberLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Phone Number"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let phoneNumberTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter phone number"
-        textField.keyboardType = .phonePad
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let whatsappNumberLabel: UILabel = {
-        let label = UILabel()
-        label.text = "WhatsApp Number"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let whatsappNumberTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter WhatsApp number"
-        textField.keyboardType = .phonePad
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let countryCodeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Country Code"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let countryCodeTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Country Code (e.g., IN)"
-        textField.text = "IN"
-        textField.borderStyle = .roundedRect
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1.0
-        textField.layer.cornerRadius = 8
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
-        button.layer.cornerRadius = 12
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-        button.layer.shadowOpacity = 0.2
-        button.layer.shadowRadius = 4
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    // MARK: - IBOutlets
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var whatsappNumberLabel: UILabel!
+    @IBOutlet weak var whatsappNumberTextField: UITextField!
+    @IBOutlet weak var countryCodeLabel: UILabel!
+    @IBOutlet weak var countryCodeTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,91 +33,52 @@ class Step3ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        view.addSubview(backButton)
-        view.addSubview(progressBar)
-        view.addSubview(stepLabel)
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        // Configure progress bar
+        progressBar.progress = 0.75
+        progressBar.progressTintColor = UIColor(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
+        progressBar.trackTintColor = UIColor.lightGray
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subtitleLabel)
-        contentView.addSubview(phoneNumberLabel)
-        contentView.addSubview(phoneNumberTextField)
-        contentView.addSubview(whatsappNumberLabel)
-        contentView.addSubview(whatsappNumberTextField)
-        contentView.addSubview(countryCodeLabel)
-        contentView.addSubview(countryCodeTextField)
-        contentView.addSubview(nextButton)
+        // Configure step label
+        stepLabel.text = "3/4"
         
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        // Configure title
+        titleLabel.text = "Contact Details"
         
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            backButton.widthAnchor.constraint(equalToConstant: 44),
-            backButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            progressBar.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
-            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            progressBar.heightAnchor.constraint(equalToConstant: 4),
-            
-            stepLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8),
-            stepLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            
-            scrollView.topAnchor.constraint(equalTo: stepLabel.bottomAnchor, constant: 16),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            phoneNumberLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 32),
-            phoneNumberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            phoneNumberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            phoneNumberTextField.topAnchor.constraint(equalTo: phoneNumberLabel.bottomAnchor, constant: 8),
-            phoneNumberTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            phoneNumberTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            phoneNumberTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            whatsappNumberLabel.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: 24),
-            whatsappNumberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            whatsappNumberLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            whatsappNumberTextField.topAnchor.constraint(equalTo: whatsappNumberLabel.bottomAnchor, constant: 8),
-            whatsappNumberTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            whatsappNumberTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            whatsappNumberTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            countryCodeLabel.topAnchor.constraint(equalTo: whatsappNumberTextField.bottomAnchor, constant: 24),
-            countryCodeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            countryCodeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            countryCodeTextField.topAnchor.constraint(equalTo: countryCodeLabel.bottomAnchor, constant: 8),
-            countryCodeTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            countryCodeTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            countryCodeTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            nextButton.topAnchor.constraint(equalTo: countryCodeTextField.bottomAnchor, constant: 40),
-            nextButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 60),
-            nextButton.heightAnchor.constraint(equalToConstant: 60),
-            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40)
-        ])
+        // Configure subtitle
+        subtitleLabel.text = "Provide your contact information"
+        
+        // Configure labels
+        phoneNumberLabel.text = "Phone Number"
+        whatsappNumberLabel.text = "WhatsApp Number"
+        countryCodeLabel.text = "Country Code"
+        
+        // Configure text fields
+        phoneNumberTextField.placeholder = "Enter phone number"
+        phoneNumberTextField.keyboardType = .phonePad
+        phoneNumberTextField.layer.borderColor = UIColor.lightGray.cgColor
+        phoneNumberTextField.layer.borderWidth = 1.0
+        phoneNumberTextField.layer.cornerRadius = 8
+        
+        whatsappNumberTextField.placeholder = "Enter WhatsApp number"
+        whatsappNumberTextField.keyboardType = .phonePad
+        whatsappNumberTextField.layer.borderColor = UIColor.lightGray.cgColor
+        whatsappNumberTextField.layer.borderWidth = 1.0
+        whatsappNumberTextField.layer.cornerRadius = 8
+        
+        countryCodeTextField.placeholder = "Country Code (e.g., IN)"
+        countryCodeTextField.text = "IN"
+        countryCodeTextField.layer.borderColor = UIColor.lightGray.cgColor
+        countryCodeTextField.layer.borderWidth = 1.0
+        countryCodeTextField.layer.cornerRadius = 8
+        
+        // Configure next button
+        nextButton.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.6, alpha: 1.0)
+        nextButton.tintColor = .white
+        nextButton.layer.cornerRadius = 12
+        nextButton.layer.shadowColor = UIColor.black.cgColor
+        nextButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        nextButton.layer.shadowOpacity = 0.2
+        nextButton.layer.shadowRadius = 4
     }
     
     private func loadSavedData() {
@@ -244,11 +87,12 @@ class Step3ViewController: UIViewController {
         countryCodeTextField.text = RegistrationData.shared.countryCode
     }
     
-    @objc private func backButtonTapped() {
+    // MARK: - IBActions
+    @IBAction func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func nextButtonTapped() {
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
         guard let phoneNo = phoneNumberTextField.text, !phoneNo.isEmpty,
               let whatsappNo = whatsappNumberTextField.text, !whatsappNo.isEmpty,
               let countryCode = countryCodeTextField.text, !countryCode.isEmpty else {
@@ -261,9 +105,8 @@ class Step3ViewController: UIViewController {
         RegistrationData.shared.whatsappNo = whatsappNo
         RegistrationData.shared.countryCode = countryCode
         
-        // Navigate to next step
-        let step4VC = Step4ViewController()
-        navigationController?.pushViewController(step4VC, animated: true)
+        // Navigate to next step using segue
+        performSegue(withIdentifier: "showStep4", sender: nil)
     }
     
     private func showAlert(title: String, message: String) {
@@ -272,4 +115,3 @@ class Step3ViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-

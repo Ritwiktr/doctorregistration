@@ -58,24 +58,9 @@ class DoctorListViewController: UIViewController {
         return label
     }()
     
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(DoctorTableViewCell.self, forCellReuseIdentifier: "DoctorCell")
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.99, alpha: 1.0)
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
-        tableView.showsVerticalScrollIndicator = false
-        return tableView
-    }()
-    
-    private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.hidesWhenStopped = true
-        indicator.color = UIColor(red: 0.3, green: 0.5, blue: 0.95, alpha: 1.0)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
-    }()
+    // MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let emptyStateContainer: UIView = {
         let view = UIView()
@@ -136,7 +121,19 @@ class DoctorListViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         
-        // Setup header
+        // Configure tableView
+        tableView.register(DoctorTableViewCell.self, forCellReuseIdentifier: "DoctorCell")
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.99, alpha: 1.0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        tableView.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // Configure activity indicator
+        activityIndicator.color = UIColor(red: 0.3, green: 0.5, blue: 0.95, alpha: 1.0)
+        
+        // Setup header (programmatically since it's complex)
         headerContainerView.layer.insertSublayer(headerGradientLayer, at: 0)
         headerContainerView.addSubview(titleLabel)
         headerContainerView.addSubview(subtitleLabel)
@@ -144,17 +141,12 @@ class DoctorListViewController: UIViewController {
         countBadge.addSubview(countLabel)
         
         view.addSubview(headerContainerView)
-        view.addSubview(tableView)
-        view.addSubview(activityIndicator)
         
         // Empty state
         emptyStateContainer.addSubview(emptyStateIcon)
         emptyStateContainer.addSubview(emptyStateLabel)
         emptyStateContainer.addSubview(emptyStateSubtitle)
         view.addSubview(emptyStateContainer)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
         
         NSLayoutConstraint.activate([
             // Header
@@ -334,6 +326,14 @@ class DoctorListViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDashboard",
+           let dashboardVC = segue.destination as? DashboardViewController,
+           let doctorId = sender as? String {
+            dashboardVC.doctorId = doctorId
+        }
+    }
+    
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -360,10 +360,8 @@ extension DoctorListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let doctor = doctors[indexPath.row]
         
-        // Navigate to dashboard with doctor details
-        let dashboardVC = DashboardViewController()
-        dashboardVC.doctorId = doctor.id
-        navigationController?.pushViewController(dashboardVC, animated: true)
+        // Navigate to dashboard with doctor details using segue
+        performSegue(withIdentifier: "showDashboard", sender: doctor.id)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
